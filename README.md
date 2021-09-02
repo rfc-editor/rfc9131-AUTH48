@@ -22,5 +22,11 @@ If you would like to submit changes, please create a pull request and identify a
 
 For the ease of all reviewers, please do not use inline comments on pull requests.
 
+# Approving the Document
+To approve your RFC for publication, please reply to the AUTH48 email stating that you approve this RFC for publication.  Please use ‘REPLY ALL’, as all the parties CC’ed on the message need to see your approval.
+
+# About This Repo
+Note that this repo is available only during AUTH48. When the document is approved and moves to AUTH48-DONE, this repo will be made private and archived. 
+
 # Contacting the RFC Editor
-For any questions or concerns, respond to the initial AUTH48 email by replying to all.
+For any questions or concerns, please contact rfc-editor@rfc-editor.org. 
