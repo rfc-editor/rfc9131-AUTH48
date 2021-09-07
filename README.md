@@ -30,3 +30,4 @@ Note that this repo is available only during AUTH48. When the document is approv
 
 ## Contacting the RFC Editor
 For any questions or concerns, please contact rfc-editor@rfc-editor.org. 
+Note that push events will send notification messages to rfc-editor@rfc-editor.org. 
