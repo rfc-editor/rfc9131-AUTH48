@@ -12,10 +12,11 @@ Feel free to add new issues for new edits and questions.
 
 The editor will close the issue when it has been addressed. 
 
-Initial labels to be used:
-* editorial - the issue is editorial in nature
-* AD-approval-required - the resolution of the issue requires the AD to review and approve the change
-* editor-ready - the issue can be resolved by updating the document and/or closing the issue
+Labels to be used:
+* rfced - initial label of RFC Editor questions and FYIs
+* question - follow-on questions have been added to the issue discussion
+* AD approval required - the resolution of the issue requires the AD to review and approve the change
+* editor-ready - the RFC Editor can update the document and/or close the issue based on the issue discussion
 
 ## Pull Requests
 If you would like to submit changes, please create a pull request and identify any issues that it closes in the comments. 
