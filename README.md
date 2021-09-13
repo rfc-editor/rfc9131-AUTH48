@@ -22,6 +22,16 @@ Labels to be used:
 If you would like to submit changes, please create a pull request and identify any issues that it closes in the comments. 
 
 For the ease of all reviewers, please do not use inline comments on pull requests.
+   
+## Viewing XML Outputs
+Output files may be viewed here:
+* [https://www.rfc-editor.org/authors/rfc9131.txt](https://www.rfc-editor.org/authors/rfc9130.txt)
+* [https://www.rfc-editor.org/authors/rfc9131.html](https://www.rfc-editor.org/authors/rfc9130.html)
+* [https://www.rfc-editor.org/authors/rfc9131.pdf](https://www.rfc-editor.org/authors/rfc9130.txt)
+   
+To create your own output files, use the [xml2rfc webservice](https://xml2rfc.tools.ietf.org/experimental.html) and select either the v3-plaintext or v3-HTML output options.
+
+If you would like guidance on using xml2rfc locally, please ask.
 
 ## Approving the Document
 To approve your RFC for publication, please reply to the AUTH48 email stating that you approve this RFC for publication.  Please use ‘REPLY ALL’, as all the parties CC’ed on the message need to see your approval.
