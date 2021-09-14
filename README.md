@@ -38,6 +38,17 @@ To create your own output files, use the [xml2rfc webservice](https://xml2rfc.to
 
 If you would like guidance on using xml2rfc locally, please ask.
 
+## Viewing Diffs
+Diffs via GitHub:
+* [XML updates](https://github.com/rfc-editor/rfc9131-AUTH48/compare/2714c1c..4db1e9d)
+* [All editing updates made before AUTH48](https://github.com/rfc-editor/rfc9131-AUTH48/commit/21fe839e62967db3384ce82f80ce0c544eb0dc34#diff-6b54089daa52d9df55fce90f8bc50c919302eca89f8ffee131799a73851abe58)
+
+More information on using GitHub to view diffs can be found here: [Comparing commits](https://docs.github.com/en/github/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
+
+The following diff files are available via www.rfc-editor.org:
+* [https://www.rfc-editor.org/authors/rfc9131-diff.html](https://www.rfc-editor.org/authors/rfc9130.html) (all changes since the document entered the RFC Editor Queue)
+* [https://www.rfc-editor.org/authors/rfc9131-rfcdiff.html](https://www.rfc-editor.org/authors/rfc9130.html) (all changes since the document entered the RFC Editor Queue side by side)
+
 ## Approving the Document
 To approve your RFC for publication, please reply to the AUTH48 email stating that you approve this RFC for publication.  Please use ‘REPLY ALL’, as all the parties CC’ed on the message need to see your approval.
 
