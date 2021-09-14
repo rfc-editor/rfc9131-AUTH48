@@ -6,6 +6,9 @@ Please see [Guidelines for contributions](https://github.com/rfc-editor/rfc9131-
 GitHub features that will be used:
 * Issue tracking
 * Pull requests
+* @mentions
+
+Authors, AD, WG chairs, and document shepherd, please ensure that your GitHub notification settings are set such that you can participate promptly in discussions of issues and pull requests. For more information, please see [Configuring notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
 
 ## Issue Tracking
 Questions and FYIs from the RFC Editor have been added as issues. Please provide your answers in the comments. 
