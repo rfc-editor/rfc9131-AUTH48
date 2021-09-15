@@ -50,6 +50,8 @@ The following diff files are available via www.rfc-editor.org:
 ## Approving the Document
 To approve your RFC for publication, **please reply to the AUTH48 email** stating that you approve this RFC for publication.  Please use **REPLY ALL**, as all the parties CC’ed on the message need to see your approval.
 
+The details of the AUTH48 status of the document are here: [https://www.rfc-editor.org/auth48/rfc9131](https://www.rfc-editor.org/auth48/rfc9131)
+
 ## About This Repo
 Note that this repo is available only during AUTH48. Before the RFC publication announcement is sent, this repo will be made private and archived. 
 
