@@ -25,4 +25,7 @@ In addition to contributions in GitHub, you are encouraged to participate in dis
 **Note**: Some working groups adopt a policy whereby substantive discussion of
 technical issues needs to occur on the mailing list.
 
-You might also like to familiarize yourself with the [AUTH48 FAQ](https://www.rfc-editor.org/faq/#auth48).
+You might also like to familiarize yourself with the [AUTH48 FAQ](https://www.rfc-editor.org/faq/#auth48), 
+but note that it does not cover GitHub procedures. Please see the 
+[README](https://github.com/rfc-editor/rfc9131-AUTH48/blob/main/README.md)
+for information on how to use GitHub for AUTH48. 
