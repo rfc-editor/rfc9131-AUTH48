@@ -28,9 +28,9 @@ For the ease of all reviewers, please do not use inline comments on pull request
    
 ## Viewing XML Outputs
 Output files may be viewed here:
-* [https://www.rfc-editor.org/authors/rfc9131.txt](https://www.rfc-editor.org/authors/rfc9130.txt)
-* [https://www.rfc-editor.org/authors/rfc9131.html](https://www.rfc-editor.org/authors/rfc9130.html)
-* [https://www.rfc-editor.org/authors/rfc9131.pdf](https://www.rfc-editor.org/authors/rfc9130.txt)
+* [https://www.rfc-editor.org/authors/rfc9131.txt](https://www.rfc-editor.org/authors/rfc9131.txt)
+* [https://www.rfc-editor.org/authors/rfc9131.html](https://www.rfc-editor.org/authors/rfc9131.html)
+* [https://www.rfc-editor.org/authors/rfc9131.pdf](https://www.rfc-editor.org/authors/rfc9131.txt)
    
 To create your own output files, use the [xml2rfc webservice](https://xml2rfc.tools.ietf.org/experimental.html) and select either the v3-plaintext or v3-HTML output options.
 
@@ -44,8 +44,8 @@ Diffs via GitHub:
 More information on using GitHub to view diffs can be found here: [Comparing commits](https://docs.github.com/en/github/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
 
 The following diff files are available via www.rfc-editor.org:
-* [https://www.rfc-editor.org/authors/rfc9131-diff.html](https://www.rfc-editor.org/authors/rfc9130-diff.html) (all changes since the document entered the RFC Editor Queue)
-* [https://www.rfc-editor.org/authors/rfc9131-rfcdiff.html](https://www.rfc-editor.org/authors/rfc9130-rfcdiff.html) (all changes since the document entered the RFC Editor Queue side by side)
+* [https://www.rfc-editor.org/authors/rfc9131-diff.html](https://www.rfc-editor.org/authors/rfc9131-diff.html) (all changes since the document entered the RFC Editor Queue)
+* [https://www.rfc-editor.org/authors/rfc9131-rfcdiff.html](https://www.rfc-editor.org/authors/rfc9131-rfcdiff.html) (all changes since the document entered the RFC Editor Queue side by side)
 
 ## Approving the Document
 To approve your RFC for publication, please reply to the AUTH48 email stating that you approve this RFC for publication.  Please use ‘REPLY ALL’, as all the parties CC’ed on the message need to see your approval.
