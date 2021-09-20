@@ -22,9 +22,6 @@
     <date year="2021" month="September"/>
     <area>Internet</area>
     <workgroup>IPv6 Maintenance</workgroup>
-<!-- [rfced] FYI: Issue titles 
-
-Because the AUTH48 of this document will be handled in GitHub, we have updated the style of our questions and comments to adapt to GitHub's issue tracker. The first line is the issue title.  The rest of the question or comment is the body of the issue.  -->
 <!-- [rfced] Keywords for search
 
 Please provide any keywords (beyond those that appear in the title) for use on https://www.rfc-editor.org/search -->
