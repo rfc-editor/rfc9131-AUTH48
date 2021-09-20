@@ -668,15 +668,7 @@ As discussed in <xref target="avoid_dis_inc" format="default"/>, the disruption 
         <name>Routers Populating Their Caches by Gleaning from Neighbor Discovery Packets</name>
         <t>
                                Routers may be able to learn about new addresses by gleaning from the DAD Neighbor Solicitation messages.
-                               The router could listen to all solicited-node multicast address groups and, upon receiving a Neighbor Solicitation from the unspecified address, search its Neighbor Cache for the solicitation's Target Address.
-
-<!-- [rfced] Capitalization of "target address" 
-
-Section 8.5:  Would you like to use either "target address" or "Target Address" (but not both forms) in this document?  We see that capitalization in RFC 4861 is inconsistent as well.  This sentence uses the only instance of the initial-capitalized form.
-
-Original:
- The router could listen to all solicited node multicast address groups and upon receiving a Neighbor Solicitation from the unspecified address search its Neighbor Cache for the solicitation's Target Address. -->
-
+                               The router could listen to all solicited-node multicast address groups and, upon receiving a Neighbor Solicitation from the unspecified address, search its Neighbor Cache for the solicitation's target address.
                                If no entry exists, the router may create an entry, set its reachability state to INCOMPLETE, and start the address resolution process for that entry.
         </t>
         <t>
