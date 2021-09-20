@@ -52,18 +52,7 @@ Because the AUTH48 of this document will be handled in GitHub, we have updated t
                                   After joining the network and receiving a Router Advertisement, the host populates its Neighbor Cache with the default router IPv6 and link-layer addresses and is able to send traffic to off-link destinations.
                                   At the same time, the router does not have any cache entries for the host global addresses yet and only starts address resolution upon receiving the first packet of the return traffic flow.
                                   While waiting for the resolution to complete, routers only keep a very small number of packets in the queue, as recommended in <xref target="RFC4861" sectionFormat="of" section="7.2.2"/>.
-Any additional packets arriving before the resolution &gt; process finishes are likely to result in dropped packets.
-
-<!-- [rfced] Use of ">" in text
-
-Section 1:  Does "before the resolution > process finishes" mean "before the address resolution process finishes"?  If not, will this sentence be clear to readers, or should the ">" be clarified?
-
-Original (We added the period to the end of the sentence):
- Any additional packets arriving before the resolution > process finishes are likely to result in dropped packets
-
-Perhaps:
- Any additional packets arriving before the address resolution process finishes are likely to result in dropped packets. -->
-
+Any additional packets arriving before the resolution process finishes are likely to result in dropped packets.
                                           It can cause packet loss and performance degradation that can be visible to users.
       </t>
       <t>
