@@ -179,17 +179,11 @@ So, any subsequent packets arriving before the address resolution process is com
       </t>
       <section anchor="hosts" numbered="true" toc="default">
         <name>Nodes Sending Gratuitous Neighbor Advertisements</name>
-<!-- [rfced]  "gratuitous" and/or "unsolicited"?
-
-Section 4.1: In following sentence fragment, should it say both "gratuitous" and "unsolicited"? 
-
-Current:
-  the node can send gratuitous unsolicited Neighbor Advertisements -->
         <t>
                               <xref target="RFC4861" sectionFormat="of" section="7.2.6"/> discusses using unsolicited Neighbor 
                               Advertisements to inform node neighbors of the new link-layer address quickly. 
                               The same mechanism could be used to notify the node neighbors about the new network-layer
-                              address as well: the node can send gratuitous unsolicited Neighbor Advertisements upon assigning a new IPv6 address to its interface. 
+                              address as well: the node can send unsolicited Neighbor Advertisements upon assigning a new IPv6 address to its interface. 
         </t>
         <t>
                               To minimize potential disruption in the case of duplicate addresses, the node should not set the Override flag for a preferred address and must not set the Override flag if the address is in the Optimistic state <xref target="RFC4429" format="default"/>.
