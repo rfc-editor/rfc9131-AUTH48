@@ -369,15 +369,6 @@ If the host has completed DAD but did not detect the address conflict, then ther
             <li>
                                                                     If return packets for communication initiated at Step 2 are still arriving, the router buffers a small number of those packets and starts the address resolution process again by sending a multicast NS to the solicited-node multicast address. The rightful owner responds, and the router's NC entry is updated with the rightful owner's link-local address. The buffered packet or packets are sent to that address. Any packets still arriving after the address resolution process has completed are sent to the rightful address owner as well.
                                                     </li>
-<!-- [rfced] FYI: "still completed"/"has completed"
-
-Section 5.3.1:  We changed "the address resolution still completed" to "the address resolution process has completed" here.  Please let us know if this is incorrect.
-
-Original:
- Any packets still arriving after the address resolution still completed are sent to the rightful address owner as well.
-
-Currently:
- Any packets still arriving after the address resolution process has completed are sent to the rightful address owner as well. -->
           </ol>
           <t>
                                                     The rightful owner is not experiencing any disruption, as it does not send any traffic.
