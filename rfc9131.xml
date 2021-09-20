@@ -818,11 +818,6 @@ As discussed in <xref target="dis_start" format="default"/>, the worst-case scen
 
 Please review the "Inclusive Language" portion of the online Style Guide at <https://www.rfc-editor.org/styleguide/part2/#inclusive_language>, and let us know if any changes are needed. -->
 
-<!-- [rfced] FYI: 'all routers' / all-routers  
-
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- 'all routers' / all-routers (multicast address) -->
 
 <!-- [rfced] ND cache or Neighbor Cache?
 
