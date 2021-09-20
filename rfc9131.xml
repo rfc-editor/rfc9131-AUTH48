@@ -858,31 +858,4 @@ The following term was used inconsistently in this document. We chose to use the
 
 There are three instances of "ND cache" in this document. Should they be changed to "Neighbor Cache"?  -->
 
-<!-- [rfced] FYI: neighbor discovery / Neighbor Discovery
-
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- neighbor discovery / Neighbor Discovery -->
-
-<!-- [rfced] FYI: optimistic address / Optimistic Address
-
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- optimistic address / Optimistic address / Optimistic Address (per (with two exceptions, which appear to be oversights) RFC 4429) -->
-
-<!-- [rfced] FYI: optimistic state / Optimistic state 
-
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- optimistic state / Optimistic state (per RFC 4429) -->
-
-<!-- [rfced] FYI: Preferred / preferred (state)
-
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- Preferred / preferred (state) (per RFC 4862) -->
-
-<!-- [rfced] FYI: solicited-node multicast address
-
-Please note that per RFC 4861 and (with only two exceptions) post-6000 RFCs, we changed "Solicited Node Multicast Address" and "solicited node multicast address" to "solicited-node multicast address". -->
 </rfc>
