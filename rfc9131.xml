@@ -607,7 +607,7 @@ As discussed in <xref target="avoid_dis_inc" format="default"/>, the disruption 
       <section numbered="true" toc="default">
         <name>Host Sending NS to the Router Address from Its GUA</name>
         <t>
-                              The host could force the creation of a STALE entry for its GUA in the router's ND cache by sending the following Neighbor Solicitation message:
+                              The host could force the creation of a STALE entry for its GUA in the router's Neighbor Cache by sending the following Neighbor Solicitation message:
         </t>
         <ul spacing="normal">
           <li>
@@ -780,7 +780,7 @@ Implementing such functionality is much more complicated than all other solution
     <section anchor="Security" numbered="true" toc="default">
       <name>Security Considerations</name>
       <t>
-                    One of the potential attack vectors to consider is cache spoofing, where the attacker might try to install a cache entry for the victim's IPv6 address and the attacker's link-layer address. However, it should be noted that this document does not propose any changes for the scenario when the ND cache for a given IPv6 address already exists.
+                    One of the potential attack vectors to consider is cache spoofing, where the attacker might try to install a cache entry for the victim's IPv6 address and the attacker's link-layer address. However, it should be noted that this document does not propose any changes for the scenario when the Neighbor Cache for a given IPv6 address already exists.
                     Therefore, there are no new vectors for an attacker to override an existing cache entry.
       </t>
       <t>
@@ -795,7 +795,7 @@ As discussed in <xref target="dis_start" format="default"/>, the worst-case scen
                             If peer-to-peer on-link communications are not desirable for a given network segment, they should be prevented by proper Layer 2 security mechanisms. Therefore, the risk of allowing hosts to send unsolicited Neighbor Advertisements to the all-routers multicast address is low.
       </t>
       <t>
-                    It should be noted that the mechanism discussed in this document allows hosts to proactively inform their routers about global IPv6 addresses existing on-link. Routers could use that information to distinguish between used and unused addresses to mitigate ND cache exhaustion DoS attacks as described in <xref target="RFC3756" sectionFormat="of" section="4.3.2"/> and in <xref target="RFC6583" format="default"/>.
+                    It should be noted that the mechanism discussed in this document allows hosts to proactively inform their routers about global IPv6 addresses existing on-link. Routers could use that information to distinguish between used and unused addresses to mitigate Neighbor Cache exhaustion DoS attacks as described in <xref target="RFC3756" sectionFormat="of" section="4.3.2"/> and in <xref target="RFC6583" format="default"/>.
 
       </t>
     </section>
@@ -853,9 +853,5 @@ The following term was used inconsistently in this document. We chose to use the
 The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
 
  neighbor cache / Neighbor Cache (per, with one exception (which appears to be an oversight) RFC 4861) -->
-
-<!-- [rfced] ND cache or Neighbor Cache?
-
-There are three instances of "ND cache" in this document. Should they be changed to "Neighbor Cache"?  -->
 
 </rfc>
