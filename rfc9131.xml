@@ -241,7 +241,7 @@ Current:
 
         </t>
         <t>
-The next section analyzes various scenarios of duplicated addresses and discusses the potential impact of creating a STALE entry for a duplicated IPv6 address.
+The next section analyzes various scenarios of duplicate addresses and discusses the potential impact of creating a STALE entry for a duplicate IPv6 address.
 </t>
       </section>
     </section>
@@ -252,7 +252,7 @@ The next section analyzes various scenarios of duplicated addresses and discusse
                                             However, nodes willing to minimize network stack configuration delays might be using Optimistic Addresses, which means there is a possibility of the address not being unique on the link.
                                             <xref target="RFC4429" sectionFormat="of" section="2.2"/> discusses measures to ensure that ND packets from the Optimistic Address do not override any existing Neighbor Cache entries, as it would cause interruption of the rightful address owner's traffic in the case of an address conflict.
                                                     Nodes that are willing to speed up their network stack configuration are most likely to be affected by the problem outlined in this document; therefore, it seems reasonable for such hosts to advertise their Optimistic Addresses by sending unsolicited NAs. 
-                                                    The main question to consider is the potential risk of overriding the cache entry for the rightful address owner if the Optimistic Address happens to be duplicated.  
+                                                    The main question to consider is the potential risk of overriding the cache entry for the rightful address owner if the Optimistic Address happens to be a duplicate.  
       </t>
       <t>
                                     The following sections discuss the address collision scenario when a node sends an unsolicited NA for an address in the Optimistic state, while another node (the rightful owner) already has the same address assigned.
@@ -357,7 +357,7 @@ If the solicited NA arrives first, it changes the NC entry state from INCOMPLETE
                                                                     The host starts DAD and detects the address duplication.
                                                     </li>
             <li>
-                                                                    The router receives the return traffic for the duplicated address. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
+                                                                    The router receives the return traffic for the duplicate address. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
                                                             </li>
             <li>
                                                                             The router changes the NC entry state to PROBE and sends up to MAX_UNICAST_SOLICIT unicast NSes <xref target="RFC4861" format="default"/> separated by RetransTimer milliseconds <xref target="RFC4861" format="default"/> to the host link-layer address.
@@ -389,7 +389,7 @@ It would only start receiving packets intended for another host after Step 8 is 
           <t>
 
                                                     However, the same behavior would be observed if the changes specified in this document are not implemented.
-                                                    If the host starts sending packets from its Optimistic Address but then changes the address state to Duplicated, the first return packet would trigger the address resolution process and would be buffered until the resolution is completed.
+                                                    If the host starts sending packets from its Optimistic Address but then detects that the address is a duplicate, the first return packet would trigger the address resolution process and would be buffered until the resolution is completed.
 
 <!-- [rfced] Is Duplicated a well-known state?
 
@@ -408,10 +408,10 @@ Section 5.3.1:  We changed "do introduce any disruption" to "do not introduce an
 incorrect.
 
 Original:
- Therefore, it's safe to conclude that the proposed changes do introduce any disruption for the rightful owner of the duplicated address.
+ Therefore, it's safe to conclude that the proposed changes do introduce any disruption for the rightful owner of the duplicate address.
 
 Currently:
- Therefore, it's safe to conclude that the changes specified in this document do not introduce any disruption for the rightful owner of the duplicated address. -->
+ Therefore, it's safe to conclude that the changes specified in this document do not introduce any disruption for the rightful owner of the duplicate address. -->
 
           </t>
         </section>
@@ -437,7 +437,7 @@ Currently:
                                                                     The host starts DAD and detects the address duplication.
                                                     </li>
             <li>
-                                                                    The router receives the return traffic for the IPv6 address in question. Some flows are intended for the rightful owner of the duplicated address, while some are for the new host. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
+                                                                    The router receives the return traffic for the IPv6 address in question. Some flows are intended for the rightful owner of the duplicate address, while some are for the new host. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
                                                             </li>
             <li>
                                                                             The router changes the NC entry state to PROBE and sends up to MAX_UNICAST_SOLICIT unicast NSes <xref target="RFC4861" format="default"/> separated by RetransTimer milliseconds <xref target="RFC4861" format="default"/> to the host link-layer address.
@@ -453,7 +453,7 @@ Currently:
                                                     </li>
           </ol>
           <t>
-                                                    As a result, the traffic for the address of the rightful owner would be sent to the host with the duplicated address instead.  The duration of the disruption can be estimated as DELAY_FIRST_PROBE_TIME*1000 + (MAX_UNICAST_SOLICIT - 1)*RetransTimer milliseconds.
+                                                    As a result, the traffic for the address of the rightful owner would be sent to the host with the duplicate address instead.  The duration of the disruption can be estimated as DELAY_FIRST_PROBE_TIME*1000 + (MAX_UNICAST_SOLICIT - 1)*RetransTimer milliseconds.
                                                     As per the constants defined in <xref target="RFC4861" sectionFormat="of" section="10"/>, this interval is equal to 5*1000 + (3 - 1)*1000 = 7000 milliseconds, or 7 seconds.
 
           </t>
@@ -784,7 +784,7 @@ Implementing such functionality is much more complicated than all other solution
                     Therefore, there are no new vectors for an attacker to override an existing cache entry.
       </t>
       <t>
-<xref target="avoid_dis" format="default"/> describes some corner cases when a host with a duplicated Optimistic Address might get some packets intended for the rightful owner of the address. However, such scenarios do not introduce any new attack vectors: even without the changes discussed in this document, an attacker can easily override the router's Neighbor Cache and redirect the traffic by sending NAs with the Solicited flag set.
+<xref target="avoid_dis" format="default"/> describes some corner cases when a host with a duplicate Optimistic Address might get some packets intended for the rightful owner of the address. However, such scenarios do not introduce any new attack vectors: even without the changes discussed in this document, an attacker can easily override the router's Neighbor Cache and redirect the traffic by sending NAs with the Solicited flag set.
 As discussed in <xref target="dis_start" format="default"/>, the worst-case scenario might cause a disruption for up to 7 seconds. Because this scenario is highly unlikely, this risk of disruption is considered acceptable. More importantly, for all cases described in <xref target="avoid_dis" format="default"/>, the rightful owner can prevent disruption caused by an accidental address duplication just by implementing the mechanism described in this document. If the rightful owner sends unsolicited NAs before using the address, the STALE entry would be created on the router's NC, and any subsequent unsolicited NAs sent from the host with an Optimistic Address would not override the NC entry. 
 </t>
       <t>
