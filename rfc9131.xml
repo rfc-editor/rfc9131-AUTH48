@@ -814,11 +814,6 @@ As discussed in <xref target="dis_start" format="default"/>, the worst-case scen
     </section>
   </back>
 
-<!-- [rfced] Please review inclusive language
-
-Please review the "Inclusive Language" portion of the online Style Guide at <https://www.rfc-editor.org/styleguide/part2/#inclusive_language>, and let us know if any changes are needed. -->
-
-
 <!-- [rfced] ND cache or Neighbor Cache?
 
 There are three instances of "ND cache" in this document. Should they be changed to "Neighbor Cache"?  -->
