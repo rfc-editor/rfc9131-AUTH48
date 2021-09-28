@@ -25,10 +25,10 @@
 <!-- [rfced] FYI: Issue titles 
 
 Because the AUTH48 of this document will be handled in GitHub, we have updated the style of our questions and comments to adapt to GitHub's issue tracker. The first line is the issue title.  The rest of the question or comment is the body of the issue.  -->
-<!-- [rfced] Keywords for search
-
-Please provide any keywords (beyond those that appear in the title) for use on https://www.rfc-editor.org/search -->
-
+	  <keyword>IPv6</keyword>
+	  <keyword>SLAAC</keyword>
+	  <keyword>stateless address autoconfiguration</keyword>
+	  <keyword>neighbor advertisement</keyword>
     <abstract>
       <t>
                     Neighbor Discovery (RFC 4861) is used by IPv6 nodes to determine the link-layer addresses of neighboring nodes as well as to discover and maintain reachability information. This document updates RFC 4861 to allow routers to proactively create a Neighbor Cache entry when a new IPv6 address is assigned to a node. It also updates RFC 4861 and recommends that nodes send unsolicited Neighbor Advertisements upon assigning a new IPv6 address. These changes will minimize the delay and packet loss when a node initiates connections to an off-link destination from a new IPv6 address. 
@@ -52,18 +52,7 @@ Please provide any keywords (beyond those that appear in the title) for use on h
                                   After joining the network and receiving a Router Advertisement, the host populates its Neighbor Cache with the default router IPv6 and link-layer addresses and is able to send traffic to off-link destinations.
                                   At the same time, the router does not have any cache entries for the host global addresses yet and only starts address resolution upon receiving the first packet of the return traffic flow.
                                   While waiting for the resolution to complete, routers only keep a very small number of packets in the queue, as recommended in <xref target="RFC4861" sectionFormat="of" section="7.2.2"/>.
-Any additional packets arriving before the resolution &gt; process finishes are likely to result in dropped packets.
-
-<!-- [rfced] Use of ">" in text
-
-Section 1:  Does "before the resolution > process finishes" mean "before the address resolution process finishes"?  If not, will this sentence be clear to readers, or should the ">" be clarified?
-
-Original (We added the period to the end of the sentence):
- Any additional packets arriving before the resolution > process finishes are likely to result in dropped packets
-
-Perhaps:
- Any additional packets arriving before the address resolution process finishes are likely to result in dropped packets. -->
-
+Any additional packets arriving before the resolution process finishes are likely to result in dropped packets.
                                           It can cause packet loss and performance degradation that can be visible to users.
       </t>
       <t>
@@ -190,17 +179,11 @@ So, any subsequent packets arriving before the address resolution process is com
       </t>
       <section anchor="hosts" numbered="true" toc="default">
         <name>Nodes Sending Gratuitous Neighbor Advertisements</name>
-<!-- [rfced]  "gratuitous" and/or "unsolicited"?
-
-Section 4.1: In following sentence fragment, should it say both "gratuitous" and "unsolicited"? 
-
-Current:
-  the node can send gratuitous unsolicited Neighbor Advertisements -->
         <t>
                               <xref target="RFC4861" sectionFormat="of" section="7.2.6"/> discusses using unsolicited Neighbor 
                               Advertisements to inform node neighbors of the new link-layer address quickly. 
                               The same mechanism could be used to notify the node neighbors about the new network-layer
-                              address as well: the node can send gratuitous unsolicited Neighbor Advertisements upon assigning a new IPv6 address to its interface. 
+                              address as well: the node can send unsolicited Neighbor Advertisements upon assigning a new IPv6 address to its interface. 
         </t>
         <t>
                               To minimize potential disruption in the case of duplicate addresses, the node should not set the Override flag for a preferred address and must not set the Override flag if the address is in the Optimistic state <xref target="RFC4429" format="default"/>.
@@ -668,15 +651,7 @@ As discussed in <xref target="avoid_dis_inc" format="default"/>, the disruption 
         <name>Routers Populating Their Caches by Gleaning from Neighbor Discovery Packets</name>
         <t>
                                Routers may be able to learn about new addresses by gleaning from the DAD Neighbor Solicitation messages.
-                               The router could listen to all solicited-node multicast address groups and, upon receiving a Neighbor Solicitation from the unspecified address, search its Neighbor Cache for the solicitation's Target Address.
-
-<!-- [rfced] Capitalization of "target address" 
-
-Section 8.5:  Would you like to use either "target address" or "Target Address" (but not both forms) in this document?  We see that capitalization in RFC 4861 is inconsistent as well.  This sentence uses the only instance of the initial-capitalized form.
-
-Original:
- The router could listen to all solicited node multicast address groups and upon receiving a Neighbor Solicitation from the unspecified address search its Neighbor Cache for the solicitation's Target Address. -->
-
+                               The router could listen to all solicited-node multicast address groups and, upon receiving a Neighbor Solicitation from the unspecified address, search its Neighbor Cache for the solicitation's target address.
                                If no entry exists, the router may create an entry, set its reachability state to INCOMPLETE, and start the address resolution process for that entry.
         </t>
         <t>
