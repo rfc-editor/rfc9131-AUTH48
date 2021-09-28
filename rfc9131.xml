@@ -22,13 +22,12 @@
     <date year="2021" month="September"/>
     <area>Internet</area>
     <workgroup>IPv6 Maintenance</workgroup>
-<!-- [rfced] FYI: Issue titles 
 
-Because the AUTH48 of this document will be handled in GitHub, we have updated the style of our questions and comments to adapt to GitHub's issue tracker. The first line is the issue title.  The rest of the question or comment is the body of the issue.  -->
 	  <keyword>IPv6</keyword>
 	  <keyword>SLAAC</keyword>
 	  <keyword>stateless address autoconfiguration</keyword>
 	  <keyword>neighbor advertisement</keyword>
+
     <abstract>
       <t>
                     Neighbor Discovery (RFC 4861) is used by IPv6 nodes to determine the link-layer addresses of neighboring nodes as well as to discover and maintain reachability information. This document updates RFC 4861 to allow routers to proactively create a Neighbor Cache entry when a new IPv6 address is assigned to a node. It also updates RFC 4861 and recommends that nodes send unsolicited Neighbor Advertisements upon assigning a new IPv6 address. These changes will minimize the delay and packet loss when a node initiates connections to an off-link destination from a new IPv6 address. 
@@ -355,15 +354,6 @@ If the host has completed DAD but did not detect the address conflict, then ther
             <li>
                                                                     If return packets for communication initiated at Step 2 are still arriving, the router buffers a small number of those packets and starts the address resolution process again by sending a multicast NS to the solicited-node multicast address. The rightful owner responds, and the router's NC entry is updated with the rightful owner's link-local address. The buffered packet or packets are sent to that address. Any packets still arriving after the address resolution process has completed are sent to the rightful address owner as well.
                                                     </li>
-<!-- [rfced] FYI: "still completed"/"has completed"
-
-Section 5.3.1:  We changed "the address resolution still completed" to "the address resolution process has completed" here.  Please let us know if this is incorrect.
-
-Original:
- Any packets still arriving after the address resolution still completed are sent to the rightful address owner as well.
-
-Currently:
- Any packets still arriving after the address resolution process has completed are sent to the rightful address owner as well. -->
           </ol>
           <t>
                                                     The rightful owner is not experiencing any disruption, as it does not send any traffic.
@@ -384,18 +374,6 @@ Original:
 The buffered packet(s) and any packets still arriving after the address is resolved would be forwarded to the rightful owner of the address.
 So, the rightful owner might still receive one or more packets from the flows intended for another host.
 Therefore, it's safe to conclude that the changes specified in this document do not introduce any disruption for the rightful owner of the duplicated address.
-
-<!-- [rfced] FYI: "do introduce"/"do not introduce" 
-
-Section 5.3.1:  We changed "do introduce any disruption" to "do not introduce any disruption" here.  Please let us know if this is
-incorrect.
-
-Original:
- Therefore, it's safe to conclude that the proposed changes do introduce any disruption for the rightful owner of the duplicate address.
-
-Currently:
- Therefore, it's safe to conclude that the changes specified in this document do not introduce any disruption for the rightful owner of the duplicate address. -->
-
           </t>
         </section>
         <section anchor="dis_start" numbered="true" toc="default">
@@ -812,21 +790,5 @@ As discussed in <xref target="dis_start" format="default"/>, the worst-case scen
       </t>
     </section>
   </back>
-
-<!-- [rfced] Please review inclusive language
-
-Please review the "Inclusive Language" portion of the online Style Guide at <https://www.rfc-editor.org/styleguide/part2/#inclusive_language>, and let us know if any changes are needed. -->
-
-<!-- [rfced] FYI: 'all routers' / all-routers  
-
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- 'all routers' / all-routers (multicast address) -->
-
-<!-- [rfced] FYI: neighbor cache / Neighbor Cache 
- 
-The following term was used inconsistently in this document. We chose to use the latter form. Please let us know any objections.
-
- neighbor cache / Neighbor Cache (per, with one exception (which appears to be an oversight) RFC 4861) -->
 
 </rfc>
