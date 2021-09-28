@@ -46,6 +46,7 @@ More information on using GitHub to view diffs can be found here: [Comparing com
 The following diff files are available via www.rfc-editor.org:
 * [https://www.rfc-editor.org/authors/rfc9131-diff.html](https://www.rfc-editor.org/authors/rfc9131-diff.html) (all changes since the document entered the RFC Editor Queue)
 * [https://www.rfc-editor.org/authors/rfc9131-rfcdiff.html](https://www.rfc-editor.org/authors/rfc9131-rfcdiff.html) (all changes since the document entered the RFC Editor Queue side by side)
+* [https://www.rfc-editor.org/authors/rfc9131-auth48diff.html](https://www.rfc-editor.org/authors/rfc9131-auth48diff.html) (all changes made in AUTH48)
 
 ## Approving the Document
 To approve your RFC for publication, **please reply to the AUTH48 email** stating that you approve this RFC for publication.  Please use **REPLY ALL**, as all the parties CC’ed on the message need to see your approval.
