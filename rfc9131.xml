@@ -22,9 +22,11 @@
     <date year="2021" month="September"/>
     <area>Internet</area>
     <workgroup>IPv6 Maintenance</workgroup>
-<!-- [rfced] Keywords for search
 
-Please provide any keywords (beyond those that appear in the title) for use on https://www.rfc-editor.org/search -->
+	  <keyword>IPv6</keyword>
+	  <keyword>SLAAC</keyword>
+	  <keyword>stateless address autoconfiguration</keyword>
+	  <keyword>neighbor advertisement</keyword>
 
     <abstract>
       <t>
@@ -49,18 +51,7 @@ Please provide any keywords (beyond those that appear in the title) for use on h
                                   After joining the network and receiving a Router Advertisement, the host populates its Neighbor Cache with the default router IPv6 and link-layer addresses and is able to send traffic to off-link destinations.
                                   At the same time, the router does not have any cache entries for the host global addresses yet and only starts address resolution upon receiving the first packet of the return traffic flow.
                                   While waiting for the resolution to complete, routers only keep a very small number of packets in the queue, as recommended in <xref target="RFC4861" sectionFormat="of" section="7.2.2"/>.
-Any additional packets arriving before the resolution &gt; process finishes are likely to result in dropped packets.
-
-<!-- [rfced] Use of ">" in text
-
-Section 1:  Does "before the resolution > process finishes" mean "before the address resolution process finishes"?  If not, will this sentence be clear to readers, or should the ">" be clarified?
-
-Original (We added the period to the end of the sentence):
- Any additional packets arriving before the resolution > process finishes are likely to result in dropped packets
-
-Perhaps:
- Any additional packets arriving before the address resolution process finishes are likely to result in dropped packets. -->
-
+Any additional packets arriving before the resolution process finishes are likely to result in dropped packets.
                                           It can cause packet loss and performance degradation that can be visible to users.
       </t>
       <t>
@@ -187,17 +178,11 @@ So, any subsequent packets arriving before the address resolution process is com
       </t>
       <section anchor="hosts" numbered="true" toc="default">
         <name>Nodes Sending Gratuitous Neighbor Advertisements</name>
-<!-- [rfced]  "gratuitous" and/or "unsolicited"?
-
-Section 4.1: In following sentence fragment, should it say both "gratuitous" and "unsolicited"? 
-
-Current:
-  the node can send gratuitous unsolicited Neighbor Advertisements -->
         <t>
                               <xref target="RFC4861" sectionFormat="of" section="7.2.6"/> discusses using unsolicited Neighbor 
                               Advertisements to inform node neighbors of the new link-layer address quickly. 
                               The same mechanism could be used to notify the node neighbors about the new network-layer
-                              address as well: the node can send gratuitous unsolicited Neighbor Advertisements upon assigning a new IPv6 address to its interface. 
+                              address as well: the node can send unsolicited Neighbor Advertisements upon assigning a new IPv6 address to its interface. 
         </t>
         <t>
                               To minimize potential disruption in the case of duplicate addresses, the node should not set the Override flag for a preferred address and must not set the Override flag if the address is in the Optimistic state <xref target="RFC4429" format="default"/>.
@@ -238,7 +223,7 @@ Current:
 
         </t>
         <t>
-The next section analyzes various scenarios of duplicated addresses and discusses the potential impact of creating a STALE entry for a duplicated IPv6 address.
+The next section analyzes various scenarios of duplicate addresses and discusses the potential impact of creating a STALE entry for a duplicate IPv6 address.
 </t>
       </section>
     </section>
@@ -249,7 +234,7 @@ The next section analyzes various scenarios of duplicated addresses and discusse
                                             However, nodes willing to minimize network stack configuration delays might be using Optimistic Addresses, which means there is a possibility of the address not being unique on the link.
                                             <xref target="RFC4429" sectionFormat="of" section="2.2"/> discusses measures to ensure that ND packets from the Optimistic Address do not override any existing Neighbor Cache entries, as it would cause interruption of the rightful address owner's traffic in the case of an address conflict.
                                                     Nodes that are willing to speed up their network stack configuration are most likely to be affected by the problem outlined in this document; therefore, it seems reasonable for such hosts to advertise their Optimistic Addresses by sending unsolicited NAs. 
-                                                    The main question to consider is the potential risk of overriding the cache entry for the rightful address owner if the Optimistic Address happens to be duplicated.  
+                                                    The main question to consider is the potential risk of overriding the cache entry for the rightful address owner if the Optimistic Address happens to be a duplicate.  
       </t>
       <t>
                                     The following sections discuss the address collision scenario when a node sends an unsolicited NA for an address in the Optimistic state, while another node (the rightful owner) already has the same address assigned.
@@ -354,7 +339,7 @@ If the solicited NA arrives first, it changes the NC entry state from INCOMPLETE
                                                                     The host starts DAD and detects the address duplication.
                                                     </li>
             <li>
-                                                                    The router receives the return traffic for the duplicated address. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
+                                                                    The router receives the return traffic for the duplicate address. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
                                                             </li>
             <li>
                                                                             The router changes the NC entry state to PROBE and sends up to MAX_UNICAST_SOLICIT unicast NSes <xref target="RFC4861" format="default"/> separated by RetransTimer milliseconds <xref target="RFC4861" format="default"/> to the host link-layer address.
@@ -377,7 +362,7 @@ It would only start receiving packets intended for another host after Step 8 is 
           <t>
 
                                                     However, the same behavior would be observed if the changes specified in this document are not implemented.
-                                                    If the host starts sending packets from its Optimistic Address but then changes the address state to Duplicated, the first return packet would trigger the address resolution process and would be buffered until the resolution is completed.
+                                                    If the host starts sending packets from its Optimistic Address but then detects that the address is a duplicate, the first return packet would trigger the address resolution process and would be buffered until the resolution is completed.
 
 <!-- [rfced] Is Duplicated a well-known state?
 
@@ -413,7 +398,7 @@ Therefore, it's safe to conclude that the changes specified in this document do 
                                                                     The host starts DAD and detects the address duplication.
                                                     </li>
             <li>
-                                                                    The router receives the return traffic for the IPv6 address in question. Some flows are intended for the rightful owner of the duplicated address, while some are for the new host. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
+                                                                    The router receives the return traffic for the IPv6 address in question. Some flows are intended for the rightful owner of the duplicate address, while some are for the new host. As the NC entry is STALE, it sends traffic using that entry, changes it to DELAY, and waits up to DELAY_FIRST_PROBE_TIME seconds <xref target="RFC4861" format="default"/>.
                                                             </li>
             <li>
                                                                             The router changes the NC entry state to PROBE and sends up to MAX_UNICAST_SOLICIT unicast NSes <xref target="RFC4861" format="default"/> separated by RetransTimer milliseconds <xref target="RFC4861" format="default"/> to the host link-layer address.
@@ -429,7 +414,7 @@ Therefore, it's safe to conclude that the changes specified in this document do 
                                                     </li>
           </ol>
           <t>
-                                                    As a result, the traffic for the address of the rightful owner would be sent to the host with the duplicated address instead.  The duration of the disruption can be estimated as DELAY_FIRST_PROBE_TIME*1000 + (MAX_UNICAST_SOLICIT - 1)*RetransTimer milliseconds.
+                                                    As a result, the traffic for the address of the rightful owner would be sent to the host with the duplicate address instead.  The duration of the disruption can be estimated as DELAY_FIRST_PROBE_TIME*1000 + (MAX_UNICAST_SOLICIT - 1)*RetransTimer milliseconds.
                                                     As per the constants defined in <xref target="RFC4861" sectionFormat="of" section="10"/>, this interval is equal to 5*1000 + (3 - 1)*1000 = 7000 milliseconds, or 7 seconds.
 
           </t>
@@ -583,7 +568,7 @@ As discussed in <xref target="avoid_dis_inc" format="default"/>, the disruption 
       <section numbered="true" toc="default">
         <name>Host Sending NS to the Router Address from Its GUA</name>
         <t>
-                              The host could force the creation of a STALE entry for its GUA in the router's ND cache by sending the following Neighbor Solicitation message:
+                              The host could force the creation of a STALE entry for its GUA in the router's Neighbor Cache by sending the following Neighbor Solicitation message:
         </t>
         <ul spacing="normal">
           <li>
@@ -644,15 +629,7 @@ As discussed in <xref target="avoid_dis_inc" format="default"/>, the disruption 
         <name>Routers Populating Their Caches by Gleaning from Neighbor Discovery Packets</name>
         <t>
                                Routers may be able to learn about new addresses by gleaning from the DAD Neighbor Solicitation messages.
-                               The router could listen to all solicited-node multicast address groups and, upon receiving a Neighbor Solicitation from the unspecified address, search its Neighbor Cache for the solicitation's Target Address.
-
-<!-- [rfced] Capitalization of "target address" 
-
-Section 8.5:  Would you like to use either "target address" or "Target Address" (but not both forms) in this document?  We see that capitalization in RFC 4861 is inconsistent as well.  This sentence uses the only instance of the initial-capitalized form.
-
-Original:
- The router could listen to all solicited node multicast address groups and upon receiving a Neighbor Solicitation from the unspecified address search its Neighbor Cache for the solicitation's Target Address. -->
-
+                               The router could listen to all solicited-node multicast address groups and, upon receiving a Neighbor Solicitation from the unspecified address, search its Neighbor Cache for the solicitation's target address.
                                If no entry exists, the router may create an entry, set its reachability state to INCOMPLETE, and start the address resolution process for that entry.
         </t>
         <t>
@@ -756,11 +733,11 @@ Implementing such functionality is much more complicated than all other solution
     <section anchor="Security" numbered="true" toc="default">
       <name>Security Considerations</name>
       <t>
-                    One of the potential attack vectors to consider is cache spoofing, where the attacker might try to install a cache entry for the victim's IPv6 address and the attacker's link-layer address. However, it should be noted that this document does not propose any changes for the scenario when the ND cache for a given IPv6 address already exists.
+                    One of the potential attack vectors to consider is cache spoofing, where the attacker might try to install a cache entry for the victim's IPv6 address and the attacker's link-layer address. However, it should be noted that this document does not propose any changes for the scenario when the Neighbor Cache for a given IPv6 address already exists.
                     Therefore, there are no new vectors for an attacker to override an existing cache entry.
       </t>
       <t>
-<xref target="avoid_dis" format="default"/> describes some corner cases when a host with a duplicated Optimistic Address might get some packets intended for the rightful owner of the address. However, such scenarios do not introduce any new attack vectors: even without the changes discussed in this document, an attacker can easily override the router's Neighbor Cache and redirect the traffic by sending NAs with the Solicited flag set.
+<xref target="avoid_dis" format="default"/> describes some corner cases when a host with a duplicate Optimistic Address might get some packets intended for the rightful owner of the address. However, such scenarios do not introduce any new attack vectors: even without the changes discussed in this document, an attacker can easily override the router's Neighbor Cache and redirect the traffic by sending NAs with the Solicited flag set.
 As discussed in <xref target="dis_start" format="default"/>, the worst-case scenario might cause a disruption for up to 7 seconds. Because this scenario is highly unlikely, this risk of disruption is considered acceptable. More importantly, for all cases described in <xref target="avoid_dis" format="default"/>, the rightful owner can prevent disruption caused by an accidental address duplication just by implementing the mechanism described in this document. If the rightful owner sends unsolicited NAs before using the address, the STALE entry would be created on the router's NC, and any subsequent unsolicited NAs sent from the host with an Optimistic Address would not override the NC entry. 
 </t>
       <t>
@@ -771,7 +748,7 @@ As discussed in <xref target="dis_start" format="default"/>, the worst-case scen
                             If peer-to-peer on-link communications are not desirable for a given network segment, they should be prevented by proper Layer 2 security mechanisms. Therefore, the risk of allowing hosts to send unsolicited Neighbor Advertisements to the all-routers multicast address is low.
       </t>
       <t>
-                    It should be noted that the mechanism discussed in this document allows hosts to proactively inform their routers about global IPv6 addresses existing on-link. Routers could use that information to distinguish between used and unused addresses to mitigate ND cache exhaustion DoS attacks as described in <xref target="RFC3756" sectionFormat="of" section="4.3.2"/> and in <xref target="RFC6583" format="default"/>.
+                    It should be noted that the mechanism discussed in this document allows hosts to proactively inform their routers about global IPv6 addresses existing on-link. Routers could use that information to distinguish between used and unused addresses to mitigate Neighbor Cache exhaustion DoS attacks as described in <xref target="RFC3756" sectionFormat="of" section="4.3.2"/> and in <xref target="RFC6583" format="default"/>.
 
       </t>
     </section>
@@ -813,9 +790,5 @@ As discussed in <xref target="dis_start" format="default"/>, the worst-case scen
       </t>
     </section>
   </back>
-
-<!-- [rfced] ND cache or Neighbor Cache?
-
-There are three instances of "ND cache" in this document. Should they be changed to "Neighbor Cache"?  -->
 
 </rfc>
