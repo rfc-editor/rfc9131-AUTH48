@@ -364,13 +364,6 @@ It would only start receiving packets intended for another host after Step 8 is 
                                                     However, the same behavior would be observed if the changes specified in this document are not implemented.
                                                     If the host starts sending packets from its Optimistic Address but then detects that the address is a duplicate, the first return packet would trigger the address resolution process and would be buffered until the resolution is completed.
 
-<!-- [rfced] Is Duplicated a well-known state?
-
-Section 5.3.1:  We could not find a state named "Duplicated" in any published RFC.  Please confirm that this text will be clear to readers.
-
-Original:
- If the host starts sending packets from its Optimistic address but then changes the address state to Duplicated, the first return packet would trigger the address resolution process and would be buffered until the resolution is completed. -->
-
 The buffered packet(s) and any packets still arriving after the address is resolved would be forwarded to the rightful owner of the address.
 So, the rightful owner might still receive one or more packets from the flows intended for another host.
 Therefore, it's safe to conclude that the changes specified in this document do not introduce any disruption for the rightful owner of the duplicated address.
