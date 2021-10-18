@@ -1,4 +1,4 @@
-# RFC 9131 AUTH48
+# AUTH48 for RFC-to-be 9131
 This repository is for managing document updates for RFC 9131 during AUTH48. 
 
 Please see the [license](https://github.com/rfc-editor/rfc9131-AUTH48/blob/main/LICENSE.md). The [IETF Note Well](https://github.com/rfc-editor/rfc9131-AUTH48/blob/main/note-well.md) applies.
