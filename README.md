@@ -1,3 +1,5 @@
+**Note:** RFC 9131 has been published and this repository has been archived.
+
 # AUTH48 for RFC-to-be 9131
 This repository is for managing document updates for RFC 9131 during AUTH48. 
 
